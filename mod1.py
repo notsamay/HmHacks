@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-from sys import exit
+import sys
 
 pygame.init()
 
@@ -60,14 +60,14 @@ bar2.fill(bar_color)
 
 circ_sur = pygame.Surface(circle_size)
 circ_sur.fill(background_color)
-circ = pygame.draw.circle(circ_sur, bar_color, (circle_size[0] / 2, circle_size[1] / 2), circle_size[0] / 2)
+circ = pygame.draw.circle(circ_sur, bar_color, (circle_size[0] // 2, circle_size[1] // 2), circle_size[0] // 2)
 circle = circ_sur.convert()
 circle.set_colorkey(background_color)
 
 # some definitions
 bar1_x, bar2_x = 10.0, screen_size[0] - bar_size[0] - 10.0
 bar1_y, bar2_y = 215.0, 215.0
-circle_x, circle_y = screen_size[0] / 2, screen_size[1] / 2
+circle_x, circle_y = screen_size[0] // 2, screen_size[1] // 2
 bar1_move, bar2_move = 0.0, 0.0
 
 # clock and font objects
@@ -84,7 +84,7 @@ while True:
     mouse_x, mouse_y = pygame.mouse.get_pos()
 
     # Update the player paddle position based on the mouse y-coordinate
-    bar1_y = mouse_y - bar1.get_height() / 2
+    bar1_y = mouse_y - bar1.get_height() // 2
 
     # Ensure the player paddle stays within the screen boundaries
     if bar1_y < 10:
